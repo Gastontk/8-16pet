@@ -1,0 +1,25 @@
+<h1>Humans#new</h1>
+<p>Find me in app/views/humans/new.html.erb</p>
+<%= form_for :human do |f| %>
+	<% if @human.errors.any? %>
+		<div id ="error_explanation">
+			<h2>
+				<%= pluralize(@human.errors.count, "error") %> kept this person from being saved.
+
+			</h2>
+			<ul>
+				<%= @human.errors.full_messages.each do |msg| %>
+					<li> <%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<p>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
